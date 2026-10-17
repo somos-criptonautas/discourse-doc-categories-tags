@@ -98,7 +98,7 @@ export default apiInitializer((api) => {
     // Say so: the previous version of this failed silently for days.
     // eslint-disable-next-line no-console
     console.warn(
-      "discourse-docs-categories-tags: doc-category-sidebar has no " +
+      "discourse-doc-categories-tags: doc-category-sidebar has no " +
         "activeCategory getter, so topics listed in an index but filed " +
         "elsewhere will not get the docs sidebar."
     );

@@ -1,4 +1,4 @@
-# discourse-docs-categories-tags
+# discourse-doc-categories-tags
 
 [ENGLISH](README.md) | **ESPAÑOL**
 
@@ -36,7 +36,7 @@ usarlo.
   dos veces, y los temas fijados de la categoría siguen fijados arriba.
 - Las insignias de categoría de origen se reactivan, ya que la lista ya no contiene
   una sola categoría. Las filas inyectadas también reciben la clase
-  `docs-categories-tags-topic` para darles estilo.
+  `doc-categories-tags-topic` para darles estilo.
 - La etiqueta se oculta en la lista de esa categoría, donde solo repite lo que la
   página ya es. Sigue visible en las páginas de tema y en cualquier otro
   listado, y las demás etiquetas de esos temas no se tocan.
@@ -154,7 +154,7 @@ pnpm lint
 
 La CI ejecuta el flujo compartido de temas de Discourse, que hace lint y ejecuta las pruebas del
 tema. `spec/system/core_features_spec.rb` comprueba que las funciones del núcleo siguen
-funcionando con el componente instalado; `spec/system/docs_categories_tags_spec.rb`
+funcionando con el componente instalado; `spec/system/doc_categories_tags_spec.rb`
 cubre la mezcla, el orden, la guarda de categoría y la desduplicación.
 
 Las pruebas de sistema se ejecutan contra un Discourse real mediante la

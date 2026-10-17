@@ -1,4 +1,4 @@
-# discourse-docs-categories-tags
+# discourse-doc-categories-tags
 
 **ENGLISH** | [ESPAÑOL](README.es.md)
 
@@ -35,7 +35,7 @@ use it.
 - Topics already in the target category are skipped, so nothing appears
   twice, and the category's pinned topics stay pinned to the top.
 - Source category badges are turned back on, since the list no longer holds
-  a single category. Injected rows also get a `docs-categories-tags-topic`
+  a single category. Injected rows also get a `doc-categories-tags-topic`
   class for styling.
 - The tag pill is hidden on that category's list, where it only repeats what
   the page already is. It stays visible on topic pages and every other
@@ -158,7 +158,7 @@ pnpm lint
 
 CI runs Discourse's shared theme workflow, which lints and runs the theme
 tests. `spec/system/core_features_spec.rb` checks that core features still
-work with the component installed; `spec/system/docs_categories_tags_spec.rb`
+work with the component installed; `spec/system/doc_categories_tags_spec.rb`
 covers the merge, the ordering, the category guard and the de-duplication.
 
 System tests run against a real Discourse via the

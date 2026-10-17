@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "discourse-docs-categories-tags" do
+RSpec.describe "discourse-doc-categories-tags" do
   let!(:component) { upload_theme_or_component }
 
   fab!(:wiki_tag) { Fabricate(:tag, name: "wiki") }
@@ -86,7 +86,7 @@ RSpec.describe "discourse-docs-categories-tags" do
   it "mixes the tagged topics into the category's own topic list" do
     visit target_category_path
 
-    expect(page).to have_css(".topic-list-item.docs-categories-tags-topic", count: 2)
+    expect(page).to have_css(".topic-list-item.doc-categories-tags-topic", count: 2)
     expect(listed_titles).to eq(
       [
         "Docs topic bumped most recently",
@@ -102,7 +102,7 @@ RSpec.describe "discourse-docs-categories-tags" do
     visit target_category_path
 
     expect(page).to have_css(
-      ".topic-list-item.docs-categories-tags-topic .badge-category",
+      ".topic-list-item.doc-categories-tags-topic .badge-category",
       text: "Guides",
     )
   end
@@ -117,19 +117,19 @@ RSpec.describe "discourse-docs-categories-tags" do
   it "leaves untagged topics from other categories out" do
     visit target_category_path
 
-    expect(page).to have_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_css(".topic-list-item.doc-categories-tags-topic")
     expect(listed_titles).not_to include("Untagged topic somewhere else")
   end
 
   it "does not touch other discovery pages" do
     visit "/c/#{other_category.slug}/#{other_category.id}"
     expect(page).to have_css(".topic-list-item")
-    expect(page).to have_no_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_no_css(".topic-list-item.doc-categories-tags-topic")
     expect(listed_titles).not_to include("Docs topic bumped most recently")
 
     visit "/latest"
     expect(page).to have_css(".topic-list-item")
-    expect(page).to have_no_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_no_css(".topic-list-item.doc-categories-tags-topic")
   end
 
   it "does nothing when no target category is set" do
@@ -139,13 +139,13 @@ RSpec.describe "discourse-docs-categories-tags" do
     visit target_category_path
 
     expect(page).to have_css(".topic-list-item")
-    expect(page).to have_no_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_no_css(".topic-list-item.doc-categories-tags-topic")
     expect(listed_titles).not_to include("Wiki topic bumped in the middle")
   end
 
   it "hides the tag pill on that list only" do
     visit target_category_path
-    expect(page).to have_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_css(".topic-list-item.doc-categories-tags-topic")
     expect(page).to have_no_css(".topic-list .discourse-tag[data-tag-name='wiki']")
 
     # Still meaningful everywhere else.
@@ -157,7 +157,7 @@ RSpec.describe "discourse-docs-categories-tags" do
     visit "/tag/wiki"
 
     expect(page).to have_current_path(target_category_path, ignore_query: true)
-    expect(page).to have_css(".topic-list-item.docs-categories-tags-topic")
+    expect(page).to have_css(".topic-list-item.doc-categories-tags-topic")
   end
 
   it "leaves other tags alone" do

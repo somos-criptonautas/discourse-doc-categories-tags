@@ -63,7 +63,7 @@ function sortTopics(topics, filter) {
 
 // Renders nothing. It exists to reach the topic list through the outlet's
 // model, which is a public API, rather than overriding the category routes.
-class DocsCategoriesTagsInjector extends Component {
+class DocCategoriesTagsInjector extends Component {
   @service store;
 
   constructor() {
@@ -75,10 +75,10 @@ class DocsCategoriesTagsInjector extends Component {
     const list = this.args.model?.list;
 
     // A list is reused when returning to a cached page; only merge once.
-    if (!list || list.docsCategoriesTagsMerged) {
+    if (!list || list.docCategoriesTagsMerged) {
       return;
     }
-    list.docsCategoriesTagsMerged = true;
+    list.docCategoriesTagsMerged = true;
 
     const filter = this.args.model.filterType || "latest";
 
@@ -136,7 +136,7 @@ export default apiInitializer((api) => {
     "discovery-above",
     <template>
       {{#if (isTarget @outletArgs)}}
-        <DocsCategoriesTagsInjector
+        <DocCategoriesTagsInjector
           @model={{@outletArgs.model}}
           @tag={{tag}}
           @categoryId={{categoryId}}
@@ -149,7 +149,7 @@ export default apiInitializer((api) => {
   // topics here. Other tags stay visible.
   api.registerValueTransformer("topic-list-class", ({ value, context }) => {
     if (context.category?.id === categoryId) {
-      value.push("docs-categories-tags-list");
+      value.push("doc-categories-tags-list");
     }
     return value;
   });
@@ -199,7 +199,7 @@ export default apiInitializer((api) => {
         context.category?.id === categoryId &&
         injectedIds.has(context.topic.id)
       ) {
-        value.push("docs-categories-tags-topic");
+        value.push("doc-categories-tags-topic");
       }
       return value;
     }
