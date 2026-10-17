@@ -1,0 +1,6 @@
+es:
+  theme_metadata:
+    description: "Integra en la lista de temas de una categoría todos los temas que llevan una etiqueta, y permite que Doc Categories trate como documentación los temas enlazados en un índice aunque estén en otra categoría."
+    settings:
+      tag_name: "Etiqueta cuyos temas se integran en la lista de temas de la categoría. Solo se usa la primera etiqueta."
+      target_category: "Categoría cuya lista de temas recibe los temas etiquetados. Solo se usa la primera categoría."

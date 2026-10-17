@@ -2,10 +2,8 @@ tag_name:
   type: list
   list_type: tag
   default: "wiki"
-  description: "Tag whose topics are mixed into the category's topic list. Only the first tag is used."
 
 target_category:
   type: list
   list_type: category
   default: ""
-  description: "Category whose topic list gains the tagged topics. Only the first category is used."

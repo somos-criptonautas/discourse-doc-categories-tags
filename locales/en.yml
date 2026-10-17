@@ -1,3 +1,6 @@
 en:
   theme_metadata:
-    description: "Lists every topic carrying a given tag on one specific category page, sorted alphabetically."
+    description: "Mixes every topic carrying a tag into one category's own topic list, and lets Doc Categories treat topics listed in an index but filed elsewhere as docs."
+    settings:
+      tag_name: "Tag whose topics are mixed into the category's topic list. Only the first tag is used."
+      target_category: "Category whose topic list gains the tagged topics. Only the first category is used."
